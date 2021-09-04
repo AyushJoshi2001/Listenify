@@ -1,15 +1,17 @@
 import { FC, memo } from "react";
 import { Route, Switch } from "react-router";
-import AboutPage from "../About.page";
-import ContactPage from "../Contact.page";
-import HomePage from "../Home.page";
-import ProfilePage from "../Profile.page";
+import Navbar from "../../components/Navbar";
+import AboutPage from "./About.page";
+import ContactPage from "./Contact.page";
+import HomePage from "./Home.page";
+import ProfilePage from "./Profile.page";
 
 interface Props {}
 
 const AppContainer: FC<Props> = (props) => {
   return (
     <div>
+      <Navbar />
       <Switch>
         <Route path="/home">
           <HomePage />

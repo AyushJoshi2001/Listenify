@@ -1,9 +1,27 @@
-import { FC, memo } from "react";
+import { FC, memo, useContext } from "react";
+import { signout } from "../../api/auth";
+import AuthContext from "../../context/auth.context";
 
 interface Props {}
 
 const Home: FC<Props> = (props) => {
-  return <div>This is home page.</div>;
+  const { user } = useContext(AuthContext);
+  return (
+    <div>
+      <button
+        type="button"
+        className="px-5 py-1 bg-red-500 rounded"
+        onClick={() => {
+          signout();
+          window.location.href = "/login";
+        }}
+      >
+        SignOut
+      </button>
+      <p>Hello! {user?.email}</p>
+      <p>This is home page.</p>
+    </div>
+  );
 };
 
 Home.defaultProps = {};

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FC, memo } from "react";
 import Input from "../../components/Input";
 import logo from "../../img/Listenify_logo.png";
@@ -7,10 +7,13 @@ import { FaLock, FaUserAlt } from "react-icons/fa";
 import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { useFormik } from "formik";
+import { signup } from "../../api/auth";
+import AuthContext from "../../context/auth.context";
 
 interface Props {}
 
 const Signup: FC<Props> = (props) => {
+  const { setUser } = useContext(AuthContext);
   // const [data, setData] = useState({ email: "", password: "", username: "" });
   const [toggle, setToggle] = useState(false);
   let toggleClass = "";
@@ -32,22 +35,25 @@ const Signup: FC<Props> = (props) => {
 
   const formik = useFormik({
     initialValues: {
-      username: "",
+      // username: "",
       email: "",
       password: "",
     },
     validationSchema: yup.object().shape({
-      username: yup.string().required().min(5),
+      // username: yup.string().required().min(5),
       email: yup.string().required().email(),
       password: yup.string().required().min(8),
     }),
     onSubmit: (data) => {
-      console.log("signup details : ", data);
-      setTimeout(() => {
-        console.log("signup Successfull...");
-        console.log("Transfering to home...");
-        history.push("/home");
-      }, 5000);
+      console.log("signup Successfull...");
+      console.log("Transfering to home...");
+      signup(data).then((response) => {
+        console.log("ID : ", response.user?.providerId);
+        if (response.user != null) {
+          setUser(response.user);
+        }
+      });
+      history.push("/home");
     },
   });
 
@@ -61,13 +67,14 @@ const Signup: FC<Props> = (props) => {
           <div className="flex justify-center">
             <img src={logo} alt="logo" className="w-48 h-48 rounded-full" />
           </div>
+          <p className="pt-5 text-4xl font-semibold text-center">Sign Up</p>
           <p className="pt-5 text-sm font-semibold text-center">
             Already have an account?{" "}
             <Link to="/login" className="text-blue-500">
               Log In
             </Link>
           </p>
-          <div className="relative pt-10">
+          {/* <div className="relative pt-10">
             <label className="sr-only">Username</label>
             <Input
               type="text"
@@ -84,7 +91,7 @@ const Signup: FC<Props> = (props) => {
             {formik.touched.username && (
               <p className="text-red-600">{formik.errors.username}</p>
             )}
-          </div>
+          </div> */}
           <div className="relative pt-8">
             <label className="sr-only">Email</label>
             <Input
@@ -149,12 +156,12 @@ const Signup: FC<Props> = (props) => {
                 type="submit"
                 className="px-5 py-2 text-sm text-white bg-blue-500 rounded hover:bg-red-600 bg-primary"
               >
-                Sign-Up
+                Sign Up
               </button>
             </div>
           </div>
           <p className="mt-5 text-sm text-center text-gray-500">
-            © 2021 All Rights Reserved.
+            © 2021 All Rights Reserved. Made by Ayush Joshi.
           </p>
         </div>
       </form>

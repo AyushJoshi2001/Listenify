@@ -1,12 +1,17 @@
+import { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import AuthContext from "./context/auth.context";
+import { User } from "./models/User";
 import AppContainerPage from "./pages/AppContainer/AppContainer.page";
 import AuthPage from "./pages/Auth/Auth.page";
 import LoginPage from "./pages/Auth/Login.page";
 import NotFoundPage from "./pages/NotFound.page";
 
 function App() {
+  const [user, setUser] = useState<User>();
+
   return (
-    <div className="App">
+    <AuthContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact>
@@ -23,7 +28,7 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
-    </div>
+    </AuthContext.Provider>
   );
 }
 

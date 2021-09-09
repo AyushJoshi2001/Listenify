@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FC, memo } from "react";
 import Input from "../../components/Input";
 import logo from "../../img/Listenify_logo.png";
@@ -7,10 +7,13 @@ import { FaLock, FaUserAlt } from "react-icons/fa";
 import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { useFormik } from "formik";
+import { login } from "../../api/auth";
+import AuthContext from "../../context/auth.context";
 
 interface Props {}
 
 const Login: FC<Props> = (props) => {
+  const { setUser } = useContext(AuthContext);
   // const [data, setData] = useState({ email: "", password: "" });
   const [toggle, setToggle] = useState(false);
   let toggleClass = "";
@@ -40,13 +43,15 @@ const Login: FC<Props> = (props) => {
       password: yup.string().required().min(8),
     }),
     onSubmit: (data) => {
-      console.log("login deatils : ", data);
-
-      setTimeout(() => {
-        console.log("login Successfull...");
-        console.log("Transfering to home...");
-        history.push("/home");
-      }, 5000);
+      console.log("login Successfull...");
+      console.log("Transfering to home...");
+      login(data).then((response) => {
+        console.log("ID : ", response.user);
+        if (response.user != null) {
+          setUser(response.user);
+        }
+      });
+      history.push("/home");
     },
   });
 
@@ -60,6 +65,7 @@ const Login: FC<Props> = (props) => {
           <div className="flex justify-center">
             <img src={logo} alt="logo" className="w-48 h-48 rounded-full" />
           </div>
+          <p className="pt-5 text-4xl font-semibold text-center">Log In</p>
           <p className="pt-5 text-sm font-semibold text-center">
             New Here?{" "}
             <Link to="/signup" className="text-blue-500">
@@ -135,10 +141,10 @@ const Login: FC<Props> = (props) => {
             </div>
           </div>
           <p className="mt-5 font-semibold text-center text-blue-500">
-            Forgot password
+            Forgot password?
           </p>
           <p className="mt-5 text-sm text-center text-gray-500">
-            © 2021 All Rights Reserved.
+            © 2021 All Rights Reserved. Made by Ayush Joshi.
           </p>
         </div>
       </form>

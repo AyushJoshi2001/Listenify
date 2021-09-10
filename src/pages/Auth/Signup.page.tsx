@@ -45,15 +45,19 @@ const Signup: FC<Props> = (props) => {
       password: yup.string().required().min(8),
     }),
     onSubmit: (data) => {
-      console.log("signup Successfull...");
-      console.log("Transfering to home...");
-      signup(data).then((response) => {
-        console.log("ID : ", response.user?.providerId);
-        if (response.user != null) {
-          setUser(response.user);
-        }
-        history.push("/home");
-      });
+      // console.log("signup Successfull...");
+      // console.log("Transfering to home...");
+      signup(data)
+        .then((response) => {
+          // console.log("ID : ", response.user?.providerId);
+          if (response.user != null) {
+            setUser(response.user);
+          }
+          history.push("/home");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
     },
   });
 

@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((u) => {
       if (u != null) {
-        console.log("user: ", u);
+        // console.log("user: ", u);
         setUser(u);
       }
     });

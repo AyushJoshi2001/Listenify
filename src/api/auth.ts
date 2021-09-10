@@ -8,7 +8,7 @@ interface Signup {
 }
 
 export const signup = (data: Signup) => {
-    console.log("Signup details : " , data);
+    // console.log("Signup details : " , data);
     return auth.createUserWithEmailAndPassword(data.email, data.password).then((response) => {
         auth.currentUser?.sendEmailVerification();
         return response;
@@ -22,13 +22,16 @@ interface Login {
 }
 
 export const login = (data: Login) => {
-    console.log("Login details : " , data);
+    // console.log("Login details : " , data);
     return auth.signInWithEmailAndPassword(data.email, data.password);
 }
 
 export const signout = () => {
-    console.log("signout...");
+    // console.log("signout...");
     auth.signOut();
+    
+    localStorage.removeItem(TOKEN_ID);
+    window.location.href = "/login";
 }  
 
 // export const fetchUser = () => {

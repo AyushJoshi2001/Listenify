@@ -43,16 +43,21 @@ const Login: FC<Props> = (props) => {
       password: yup.string().required().min(8),
     }),
     onSubmit: (data) => {
-      console.log("login Successfull...");
-      console.log("Transfering to home...");
-      login(data).then((response) => {
-        console.log("ID : ", response.user);
-        if (response.user != null) {
-          localStorage.setItem(TOKEN_ID, response.user.refreshToken);
-          setUser(response.user);
-        }
-        history.push("/home");
-      });
+      // console.log("login Successfull...");
+      // console.log("Transfering to home...");
+      login(data)
+        .then((response) => {
+          // console.log("ID : ", response.user);
+          if (response.user != null) {
+            localStorage.setItem(TOKEN_ID, response.user.refreshToken);
+            setUser(response.user);
+          }
+          history.push("/home");
+        })
+        .catch((error) => {
+          // console.log(error);
+          alert(error.message);
+        });
     },
   });
   return (

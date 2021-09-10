@@ -52,8 +52,8 @@ const Signup: FC<Props> = (props) => {
         if (response.user != null) {
           setUser(response.user);
         }
+        history.push("/home");
       });
-      history.push("/home");
     },
   });
 

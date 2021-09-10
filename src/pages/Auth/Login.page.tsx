@@ -7,7 +7,7 @@ import { FaLock, FaUserAlt } from "react-icons/fa";
 import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { login } from "../../api/auth";
+import { login, TOKEN_ID } from "../../api/auth";
 import AuthContext from "../../context/auth.context";
 
 interface Props {}
@@ -48,13 +48,13 @@ const Login: FC<Props> = (props) => {
       login(data).then((response) => {
         console.log("ID : ", response.user);
         if (response.user != null) {
+          localStorage.setItem(TOKEN_ID, response.user.refreshToken);
           setUser(response.user);
         }
+        history.push("/home");
       });
-      history.push("/home");
     },
   });
-
   return (
     <div className="flex items-center justify-center w-full min-h-screen bg-gray-300">
       <form

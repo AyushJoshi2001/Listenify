@@ -1,5 +1,5 @@
 import { FC, memo, useContext } from "react";
-import { signout } from "../../api/auth";
+import { signout, TOKEN_ID } from "../../api/auth";
 import AuthContext from "../../context/auth.context";
 
 interface Props {}
@@ -13,6 +13,7 @@ const Home: FC<Props> = (props) => {
         className="px-5 py-1 bg-red-500 rounded"
         onClick={() => {
           signout();
+          localStorage.removeItem(TOKEN_ID);
           window.location.href = "/login";
         }}
       >

@@ -1,6 +1,6 @@
 import { auth } from "../firebase";
 
-export const TOKEN_ID = "tokenId";
+export const TOKEN_ID = "token";
 
 interface Signup {
     email: string;
@@ -31,10 +31,10 @@ export const signout = () => {
     auth.signOut();
 }  
 
-export const fetchUser = () => {
-    auth.onAuthStateChanged(authUser => {
-        authUser
-          ? localStorage.setItem(TOKEN_ID, JSON.stringify(authUser))
-          : localStorage.removeItem(TOKEN_ID)
-      });
-}
+// export const fetchUser = () => {
+//     auth.onAuthStateChanged(authUser => {
+//         authUser
+//           ? localStorage.setItem(TOKEN_ID, JSON.stringify(authUser))
+//           : localStorage.removeItem(TOKEN_ID)
+//       });
+// }

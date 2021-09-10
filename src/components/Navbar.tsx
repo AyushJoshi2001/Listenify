@@ -17,7 +17,7 @@ const Navbar: FC<Props> = (props) => {
       <div className="flex items-center ml-10 space-x-5 text-xl font-semibold text-white">
         <Link to="/home">Home</Link>
         <Link to="/about">About</Link>
-        <Link to="/contact">Contact-Us</Link>
+        <Link to="/contact">Contact</Link>
       </div>
     </div>
   );

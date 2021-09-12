@@ -1,24 +1,38 @@
-import { FC, memo, useContext } from "react";
-import { signout } from "../../api/auth";
-import AuthContext from "../../context/auth.context";
+import { FC, memo } from "react";
+import { useHistory } from "react-router";
+import MusicCard from "../../components/MusicCard";
+import Playbar from "../../components/Playbar";
 
 interface Props {}
 
 const Home: FC<Props> = (props) => {
-  const { user } = useContext(AuthContext);
+  const history = useHistory();
   return (
-    <div>
-      <button
-        type="button"
-        className="px-5 py-1 bg-red-500 rounded"
-        onClick={() => {
-          signout();
-        }}
-      >
-        SignOut
-      </button>
-      <p>Hello! {user?.email}</p>
-      <p>This is home page.</p>
+    <div className="w-full min-h-screen pt-10">
+      {/* <p className="px-5 text-4xl font-bold">RECENT SONGS</p> */}
+      <p className="px-5 text-4xl font-bold">ALL SONGS</p>
+      <div className="flex flex-wrap">
+        <MusicCard
+          onClick={() => {
+            history.push("/play/musicId");
+          }}
+          className="flex-wrap flex-shrink-0"
+        />
+        <MusicCard
+          onClick={() => {
+            history.push("/play/musicId");
+          }}
+          className="flex-shrink-0"
+        />
+        <MusicCard
+          onClick={() => {
+            history.push("/play/musicId");
+          }}
+          className="flex-wrap flex-shrink-0"
+        />
+      </div>
+
+      <Playbar />
     </div>
   );
 };

@@ -32,7 +32,10 @@ function App() {
           <Route path="/" exact>
             {user ? <Redirect to="/home" /> : <Redirect to="/login" />}
           </Route>
-          <Route path={["/home", "/about", "/contact", "/profile"]} exact>
+          <Route
+            path={["/home", "/about", "/contact", "/profile", "/play/:musicId"]}
+            exact
+          >
             {user ? <AppContainerPage /> : <Redirect to="/login" />}
           </Route>
           <Route path={["/login", "/signup"]} exact>

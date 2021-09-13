@@ -1,4 +1,4 @@
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 
 export const TOKEN_ID = "token";
 
@@ -33,6 +33,10 @@ export const signout = () => {
     localStorage.removeItem(TOKEN_ID);
     window.location.href = "/login";
 }  
+
+export const fetchSongsData = () => {
+    return db.collection("Songs/").get();
+}
 
 // export const fetchUser = () => {
 //     auth.onAuthStateChanged(authUser => {

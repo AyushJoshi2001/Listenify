@@ -1,13 +1,23 @@
 import { FC, memo } from "react";
-import logo from "../img/Listenify_logo.png";
 import { FaPlay } from "react-icons/fa";
 
 interface Props {
   onClick: () => void;
   className?: string;
+  src?: string;
+  songName?: string;
+  artist?: string;
+  year?: number;
 }
 
-const MusicCard: FC<Props> = ({ onClick, className }) => {
+const MusicCard: FC<Props> = ({
+  onClick,
+  className,
+  src,
+  songName,
+  artist,
+  year,
+}) => {
   return (
     <>
       <div
@@ -18,17 +28,23 @@ const MusicCard: FC<Props> = ({ onClick, className }) => {
         onClick={onClick}
       >
         <div className="relative p-1">
-          <img src={logo} alt="song" className="w-full h-40 rounded-lg" />
+          <img src={src} alt="song" className="w-full h-40 rounded-lg" />
           <FaPlay className="absolute text-red-500 w-9 h-9 bottom-3 right-3" />
         </div>
-        <p className="px-2 pt-3 font-semibold text-center text-white">
-          Lorem, ipsum. Lorem ipsum dolor.
+        <p className="px-2 pt-3 font-semibold text-center text-white truncate">
+          {songName}
         </p>
+        <div className="flex justify-between px-1 py-2">
+          <span className="text-sm text-white truncate">{artist}</span>
+          <span className="pl-2 text-sm text-white">{year}</span>
+        </div>
       </div>
     </>
   );
 };
 
-MusicCard.defaultProps = {};
+MusicCard.defaultProps = {
+  src: "",
+};
 
 export default memo(MusicCard);

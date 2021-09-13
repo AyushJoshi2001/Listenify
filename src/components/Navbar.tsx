@@ -9,7 +9,7 @@ interface Props {}
 const Navbar: FC<Props> = (props) => {
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col mx-auto max-w-screen-2xl">
         <div className="flex flex-col px-5 py-2 bg-gray-700 sm:flex-row">
           <Link to="/">
             <div className="flex items-center justify-center px-5">
@@ -24,7 +24,7 @@ const Navbar: FC<Props> = (props) => {
         </div>
       </div>
 
-      <div className="sticky top-0 justify-between hidden bg-gray-500 sm:flex">
+      <div className="sticky top-0 justify-between hidden mx-auto bg-gray-500 sm:flex max-w-screen-2xl">
         <div className="flex items-center px-5 py-2 space-x-6 text-lg font-semibold text-white md:space-x-16 md:text-xl ">
           <Link to="/home">Home</Link>
           <Link to="/about">About</Link>

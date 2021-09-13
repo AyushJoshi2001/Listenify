@@ -14,7 +14,7 @@ const AppContainer: FC<Props> = (props) => {
   return (
     <>
       <Navbar />
-      <div className="flex">
+      <div className="flex mx-auto max-w-screen-2xl">
         <Sidenav className="flex-shrink-0" />
         <div className="w-full bg-gray-100">
           <Switch>

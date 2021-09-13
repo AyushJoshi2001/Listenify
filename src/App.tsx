@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ImSpinner9 } from "react-icons/im";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { TOKEN_ID } from "./api/auth";
 import AuthContext from "./context/auth.context";
@@ -22,7 +23,11 @@ function App() {
   }, []);
 
   if (token && !user) {
-    return <p>Loding...</p>;
+    return (
+      <div className="flex items-center justify-center min-w-full min-h-screen">
+        <ImSpinner9 className="w-20 h-20 text-blue-500 animate-spin " />
+      </div>
+    );
   }
 
   return (

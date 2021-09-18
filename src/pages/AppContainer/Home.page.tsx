@@ -1,7 +1,6 @@
 import { FC, memo, useContext } from "react";
 import { useHistory } from "react-router";
 import MusicCard from "../../components/MusicCard";
-import Playbar from "../../components/Playbar";
 import SongContext from "../../context/songs.context";
 
 interface Props {}
@@ -18,7 +17,7 @@ const Home: FC<Props> = (props) => {
           return (
             <MusicCard
               onClick={() => {
-                history.push("/play/musicId");
+                history.push("/play/" + song.Song_ID);
               }}
               className="flex-wrap flex-shrink-0"
               src={song.Img_URL}
@@ -31,7 +30,7 @@ const Home: FC<Props> = (props) => {
         })}
       </div>
 
-      <Playbar />
+      {/* <Playbar /> */}
     </div>
   );
 };

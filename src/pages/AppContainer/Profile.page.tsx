@@ -21,8 +21,8 @@ const Profile: FC<Props> = (props) => {
     emailVerified = user!.emailVerified ? "Yes" : "No";
   }
   return (
-    <div className="w-full min-h-screen bg-gray-200 ">
-      <div className="mx-10 mt-10 bg-white rounded-lg">
+    <div className="w-full min-h-screen ">
+      <div className="mx-10 mt-10 bg-gray-100 rounded-lg">
         <div className="p-5">
           <h3 className="font-semibold text-gray-700">GENERAL INFORMATION</h3>
           <div className="flex flex-col pt-16 pb-8 md:px-16 xl:flex-row">

@@ -42,10 +42,19 @@ export const fetchSongsData = () => {
 export const updateProfile = (name: string) => {
     auth.currentUser!.updateProfile({displayName: name});
 }
-// export const fetchUser = () => {
-//     auth.onAuthStateChanged(authUser => {
-//         authUser
-//           ? localStorage.setItem(TOKEN_ID, JSON.stringify(authUser))
-//           : localStorage.removeItem(TOKEN_ID)
-//       });
-// }
+
+interface ContactDetails{
+    First_Name: string;
+    Last_Name: string;
+    Email: string;
+    Mobile_Number?: string;
+    Message: string;
+}
+export const submitContactMessage = (data: ContactDetails) => {
+    db.collection("Messages").add(data).then(() => {
+        alert("Message successfully sent!");
+    })
+    .catch((error) => {
+        alert("Error writing Message: " + error);
+    });
+}

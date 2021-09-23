@@ -66,6 +66,15 @@ const Sidenav: FC<Props> = ({ className }) => {
                   Home
                 </Link>
                 <Link
+                  to="/profile"
+                  className="px-3 py-2 mx-3 mt-3 font-semibold text-white bg-green-400 rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
+                  onClick={() => {
+                    setIsOpen(!isOpen);
+                  }}
+                >
+                  Profile
+                </Link>
+                <Link
                   to="/about"
                   className="px-3 py-2 mx-3 mt-3 font-semibold text-white bg-green-400 rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
                   onClick={() => {

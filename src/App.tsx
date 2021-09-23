@@ -17,8 +17,8 @@ function App() {
 
   useEffect(() => {
     auth.onAuthStateChanged((u) => {
-      if (u != null) {
-        // console.log("user: ", u);
+      if (u !== null) {
+        console.log("user: ", u);
         setUser(u);
         fetchSongsData().then((snapshot) => {
           if (snapshot.docs.length > 0) {

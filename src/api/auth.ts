@@ -38,6 +38,10 @@ export const fetchSongsData = () => {
     return db.collection("Songs/").get();
 }
 
+
+export const updateProfile = (name: string) => {
+    auth.currentUser!.updateProfile({displayName: name});
+}
 // export const fetchUser = () => {
 //     auth.onAuthStateChanged(authUser => {
 //         authUser

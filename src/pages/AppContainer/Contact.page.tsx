@@ -11,42 +11,43 @@ const Contact: FC<Props> = (props) => {
         <div className="flex w-full space-x-10">
           <div className="flex flex-col flex-1 space-y-3">
             <label htmlFor="fname" className="text-sm text-gray-500">
-              First Name
+              First Name*
             </label>
-            <InputBorder />
+            <InputBorder type="text" name="fname" required />
           </div>
           <div className="flex flex-col flex-1 space-y-3">
             <label htmlFor="lname" className="text-sm text-gray-500">
-              Last Name
+              Last Name*
             </label>
-            <InputBorder />
+            <InputBorder type="text" name="lname" required />
           </div>
         </div>
         <div className="flex flex-col space-y-3">
           <label htmlFor="email" className="text-sm text-gray-500">
-            Email
+            Email*
           </label>
-          <InputBorder />
+          <InputBorder type="text" name="email" required />
         </div>
         <div className="flex flex-col space-y-3">
           <label htmlFor="mobile" className="text-sm text-gray-500">
             Mobile Number(optional)
           </label>
-          <InputBorder />
+          <InputBorder type="number" name="mobile" />
         </div>
         <div className="flex flex-col space-y-3">
           <label htmlFor="message" className="text-sm text-gray-500">
-            Message
+            Message*
           </label>
           <textarea
             name="message"
-            className="px-2 py-1 border border-gray-500 rounded-lg "
+            className="h-24 px-2 py-1 border border-gray-500 rounded-lg "
+            required
           />
         </div>
         <div className="w-full max-w-sm mx-auto">
           <button
             type="submit"
-            className="w-full px-4 py-1 text-white bg-blue-800 rounded-lg"
+            className="w-full px-4 py-2 text-white bg-blue-800 rounded-lg"
           >
             Submit
           </button>

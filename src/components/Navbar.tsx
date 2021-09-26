@@ -29,6 +29,7 @@ const Navbar: FC<Props> = (props) => {
           <Link to="/home">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
+          <Link to="/admin">Admin</Link>
         </div>
         <div className="flex items-center">
           <Dropdown />

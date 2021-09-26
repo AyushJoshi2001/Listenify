@@ -1,6 +1,7 @@
 import { auth, db } from "../firebase";
 
 export const TOKEN_ID = "token";
+export const ADMIN_UID = "iyuql15lWuSx6UOCc0Ao0ZirwU03";
 
 interface Signup {
     email: string;

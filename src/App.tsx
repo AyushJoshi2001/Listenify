@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { ImSpinner9 } from "react-icons/im";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { fetchSongsData, TOKEN_ID } from "./api/auth";
+import { ADMIN_UID, fetchSongsData, TOKEN_ID } from "./api/auth";
 import AuthContext from "./context/auth.context";
 import SongContext from "./context/songs.context";
 import { auth } from "./firebase";
 import { User } from "./models/User";
+import AdminPage from "./pages/Admin/Admin.page";
 import AppContainerPage from "./pages/AppContainer/AppContainer.page";
 import AuthPage from "./pages/Auth/Auth.page";
 import NotFoundPage from "./pages/NotFound.page";
@@ -63,7 +64,16 @@ function App() {
               {user ? <AppContainerPage /> : <Redirect to="/login" />}
             </Route>
             <Route path={["/login", "/signup"]} exact>
-              <AuthPage />
+              {user ? <Redirect to="/" /> : <AuthPage />}
+            </Route>
+            <Route path={"/admin"} exact>
+              {user && user.uid === ADMIN_UID ? (
+                <AdminPage />
+              ) : (
+                <div className="flex items-center justify-center min-w-full min-h-screen text-4xl font-bold bg-red-600 ">
+                  You don't have admin access.
+                </div>
+              )}
             </Route>
             <Route>
               <NotFoundPage />

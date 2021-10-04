@@ -16,7 +16,7 @@ const Play: FC<Props> = (props) => {
   const { songs } = useContext(SongContext);
   let currentSong: Song = {};
   songs.forEach((song) => {
-    if (song.Song_ID === parseInt(songId.musicId)) {
+    if (song.Song_ID === songId.musicId) {
       // console.log(song);
       currentSong = song;
     }

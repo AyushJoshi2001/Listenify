@@ -16,4 +16,5 @@ const app = firebase.initializeApp({
 
 export const auth = app.auth();
 export const db = app.firestore();
+export const storage = app.storage("gs://listenify-67086.appspot.com");
 export default app;

@@ -1,5 +1,5 @@
 export interface Song{
-    Song_ID?: number;
+    Song_ID?: string;
     Song_Name?: string;
     Artist?: string;
     Year?: number;

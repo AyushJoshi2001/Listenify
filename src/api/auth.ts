@@ -59,3 +59,24 @@ export const submitContactMessage = (data: ContactDetails) => {
         alert("Error writing Message: " + error);
     });
 }
+
+interface SongDetails {
+    Artist: string;
+    Download_URL: string;
+    Img_URL: string;
+    Song_Name: string;
+    Year: string;
+    Song_ID: string;
+}
+export const addSong = (data: SongDetails) => {
+    db.collection("Songs").doc(data.Song_ID)
+                .set(data)
+                .then(() => {
+                    alert("Song added successfully!");
+                    window.location.href = "/admin";
+                  
+                })
+                .catch((error: any) => {
+                  alert("Error occured: " + error);
+                });
+}

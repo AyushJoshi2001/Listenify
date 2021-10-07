@@ -21,26 +21,22 @@ const Playbar: FC<Props> = ({ className, song }) => {
   return (
     <div
       className={
-        "rounded-t-lg pb-5 pt-2  w-full bg-gray-700 mx-auto max-w-screen-2xl " +
-        className
+        "flex py-1 w-full bg-gray-700 mx-auto max-w-screen-2xl " + className
       }
     >
-      <div className="flex justify-between px-5">
-        <span className="text-white">00:30</span>
-        <span className="text-white">05:30</span>
-      </div>
       {/* title */}
       <div className="flex justify-center px-5 space-x-2">
         <div className="flex items-center">
           <img
-            className="flex-shrink-0 rounded-full w-7 h-7"
+            className="flex-shrink-0 w-16 h-16"
             src={song!.Img_URL}
             alt="song"
           />
         </div>
-        <p className="flex items-center pt-2 text-sm text-white">
-          {song!.Song_Name}
-        </p>
+        <div>
+          <p className="text-xl font-semibold text-white">{song!.Song_Name}</p>
+          <p className="text-sm font-semibold text-white">{song!.Year}</p>
+        </div>
       </div>
 
       <div className="flex items-center justify-center h-full pt-2 space-x-10">

@@ -1,4 +1,5 @@
-import { FC, memo, useContext, useEffect } from "react";
+import { FC, memo, useContext } from "react";
+import { BsPlay } from "react-icons/bs";
 import { useParams } from "react-router";
 import Playbar from "../../components/Playbar";
 import SongContext from "../../context/songs.context";
@@ -17,39 +18,67 @@ const Play: FC<Props> = (props) => {
   let currentSong: Song = {};
   songs.forEach((song) => {
     if (song.Song_ID === songId.musicId) {
-      // console.log(song);
       currentSong = song;
     }
   });
-  useEffect(() => {}, []);
-
   // console.log("current Song : ", currentSong);
 
   return (
     <div
-      className="flex flex-col justify-between mx-5 md:flex-row max-w-screen-2xl"
+      className="flex flex-col justify-between max-w-screen-2xl"
       style={{ minHeight: "80vh" }}
     >
-      <div className="relative w-full mr-10 space-y-10 bg-red-100 ">
-        <div className="flex justify-center py-10">
-          <img
-            className="rounded-lg w-72 h-72"
-            src={currentSong.Img_URL}
-            alt="Song"
-          />
+      <div className="relative w-full mr-10 space-y-10 ">
+        <div className="flex flex-col px-10 py-16 md:flex-row">
+          <div className="pb-10 md:pr-10 md:pb-0">
+            <img
+              className="rounded-lg w-72 h-72"
+              src={currentSong.Img_URL}
+              alt="Song"
+            />
+          </div>
+          <div>
+            <p className="text-3xl font-semibold text-white">
+              {currentSong.Song_Name}
+            </p>
+            <p className="pt-2 pb-5 text-xl font-semibold text-white">
+              {currentSong.Year} | {currentSong.Artist}
+            </p>
+            <button className="px-5 py-1 text-lg text-white bg-blue-600 rounded-lg">
+              <div className="flex">
+                <div className="flex items-center pr-1">
+                  <BsPlay className="w-6 h-6" />
+                </div>
+                <p>PLAY</p>
+              </div>
+            </button>
+          </div>
         </div>
-        <Playbar className="bottom-0 md:absolute" song={currentSong} />
+        <Playbar className="fixed bottom-0" song={currentSong} />
       </div>
-      <div
-        className="flex-shrink-0 w-full pt-20 bg-red-100 border-black md:border-l-2 md:w-72"
-        style={{ minHeight: "80vh" }}
-      >
+      <div className="w-full px-10 mt-20 text-white">
+        <p className="py-5 text-3xl font-semibold">Top Rated Songs</p>
         <ul>
-          <li>song</li>
-          <li>song</li>
-          <li>song</li>
-          <li>song</li>
-          <li>song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
         </ul>
       </div>
     </div>

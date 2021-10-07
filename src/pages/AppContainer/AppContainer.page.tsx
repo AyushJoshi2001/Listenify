@@ -1,5 +1,6 @@
 import { FC, memo } from "react";
 import { Route, Switch } from "react-router";
+import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import Sidenav from "../../components/Sidenav";
 import AboutPage from "./About.page";
@@ -16,7 +17,7 @@ const AppContainer: FC<Props> = (props) => {
       <Navbar />
       <div className="flex mx-auto max-w-screen-2xl">
         <Sidenav className="flex-shrink-0" />
-        <div className="w-full">
+        <div className="w-full bg-black">
           <Switch>
             <Route path="/home">
               <HomePage />
@@ -36,6 +37,7 @@ const AppContainer: FC<Props> = (props) => {
           </Switch>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

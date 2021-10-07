@@ -22,7 +22,7 @@ const MusicCard: FC<Props> = ({
     <>
       <div
         className={
-          "w-40 h-64 mt-10 ml-10 bg-purple-400 hover:bg-purple-300 rounded-lg shadow-lg cursor-pointer " +
+          "w-40 h-64 hover:-translate-y-5 transform mt-10 ml-10 bg-purple-400 hover:bg-purple-300 rounded-lg shadow-lg cursor-pointer " +
           className
         }
         onClick={onClick}

@@ -91,7 +91,7 @@ const Admin: FC<Props> = (props) => {
   });
 
   return (
-    <div>
+    <div className="bg-black">
       {/* navbar */}
       <div className="sticky top-0 z-10 justify-between hidden mx-auto bg-gray-500 sm:flex max-w-screen-2xl">
         <div className="flex items-center px-5 py-2 space-x-6 text-lg font-semibold text-white md:space-x-16 md:text-xl ">
@@ -111,7 +111,7 @@ const Admin: FC<Props> = (props) => {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto my-10 bg-gray-200 rounded-lg">
+      <div className="max-w-5xl mx-auto mt-10 bg-gray-200 rounded-lg">
         <p className="px-5 pt-10 text-4xl font-bold">Add Song</p>
         <form className="px-5 py-10 space-y-8" onSubmit={formik.handleSubmit}>
           <div className="flex flex-col items-center space-y-3">
@@ -193,6 +193,31 @@ const Admin: FC<Props> = (props) => {
             </button>
           </div>
         </form>
+      </div>
+      <div className="w-full px-10 mt-20 text-white">
+        <p className="py-5 text-3xl font-semibold">Delete Songs</p>
+        <ul>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+          <li className="py-2 border-b border-white">song</li>
+        </ul>
       </div>
     </div>
   );

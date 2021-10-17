@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC, memo, useContext } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "../../components/Dropdown";
 import logo from "../../img/Listenify_logo.png";
@@ -6,10 +6,14 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { storage } from "../../firebase";
 import { addSong } from "../../api/auth";
+import SongContext from "../../context/songs.context";
+import DeleteSongCard from "../../components/DeleteSongCard";
 
 interface Props {}
 
 const Admin: FC<Props> = (props) => {
+  const { songs } = useContext(SongContext);
+
   const imageStorageRef = storage.ref("Image/");
   const songsStorageRef = storage.ref("Songs/");
 
@@ -196,28 +200,19 @@ const Admin: FC<Props> = (props) => {
       </div>
       <div className="w-full px-10 mt-20 text-white">
         <p className="py-5 text-3xl font-semibold">Delete Songs</p>
-        <ul>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-        </ul>
+        <div className="flex flex-wrap">
+          {songs.map((song) => {
+            return (
+              <DeleteSongCard
+                onClick={() => {}}
+                songName={song.Song_Name!}
+                imageUrl={song.Img_URL!}
+                Artist={song.Artist!}
+                Year={song.Year!}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

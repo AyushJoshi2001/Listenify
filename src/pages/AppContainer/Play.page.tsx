@@ -1,7 +1,8 @@
 import { FC, memo, useContext } from "react";
 import { BsPlay } from "react-icons/bs";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import Playbar from "../../components/Playbar";
+import SongCard from "../../components/SongCard";
 import SongContext from "../../context/songs.context";
 import { Song } from "../../models/Song";
 
@@ -12,6 +13,7 @@ interface Id {
 }
 
 const Play: FC<Props> = (props) => {
+  const history = useHistory();
   const songId: Id = useParams();
   // console.log(songId.musicId);
   const { songs } = useContext(SongContext);
@@ -44,7 +46,7 @@ const Play: FC<Props> = (props) => {
             <p className="pt-2 pb-5 text-xl font-semibold text-white">
               {currentSong.Year} | {currentSong.Artist}
             </p>
-            <button className="px-5 py-1 text-lg text-white bg-blue-600 rounded-lg">
+            <button className="px-5 py-1 text-lg text-white bg-blue-600 rounded-lg hover:bg-blue-400">
               <div className="flex">
                 <div className="flex items-center pr-1">
                   <BsPlay className="w-6 h-6" />
@@ -58,28 +60,22 @@ const Play: FC<Props> = (props) => {
       </div>
       <div className="w-full px-10 mt-20 text-white">
         <p className="py-5 text-3xl font-semibold">Top Rated Songs</p>
-        <ul>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-          <li className="py-2 border-b border-white">song</li>
-        </ul>
+        <div className="flex flex-wrap">
+          {songs.map((song) => {
+            return (
+              <SongCard
+                onClick={() => {
+                  history.push("/play/" + song.Song_ID);
+                }}
+                songName={song.Song_Name!}
+                imageUrl={song.Img_URL!}
+                Artist={song.Artist!}
+                Year={song.Year!}
+                className="hover:bg-gray-700"
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

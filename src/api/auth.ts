@@ -73,8 +73,6 @@ export const addSong = (data: SongDetails) => {
                 .set(data)
                 .then(() => {
                     alert("Song added successfully!");
-                    window.location.href = "/admin";
-                  
                 })
                 .catch((error: any) => {
                   alert("Error occured: " + error);

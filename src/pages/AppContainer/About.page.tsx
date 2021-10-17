@@ -7,7 +7,7 @@ const About: FC<Props> = (props) => {
   return (
     <div className="" style={{ minHeight: "80vh" }}>
       <div className="pb-10"></div>
-      <div className="flex flex-col items-center justify-center w-4/5 px-5 py-20 mx-auto space-y-10 bg-gray-300 divide-black rounded-lg shadow-lg md:divide-x-2 md:space-y-0 md:flex-row">
+      <div className="flex flex-col items-center justify-center w-4/5 px-5 py-20 mx-auto space-y-10 bg-gray-200 divide-black rounded-lg shadow-lg md:divide-x-2 md:space-y-0 md:flex-row">
         <div className="flex items-center flex-shrink-0 md:pr-10 ">
           <img className="w-40 h-40 rounded-lg " src={owner} alt="owner" />
         </div>

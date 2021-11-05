@@ -8,6 +8,7 @@ import { storage } from "../../firebase";
 import { addSong } from "../../api/auth";
 import SongContext from "../../context/songs.context";
 import DeleteSongCard from "../../components/DeleteSongCard";
+import Footer from "../../components/Footer";
 
 interface Props {}
 
@@ -97,7 +98,7 @@ const Admin: FC<Props> = (props) => {
   return (
     <div className="bg-black">
       {/* navbar */}
-      <div className="sticky top-0 z-10 justify-between hidden mx-auto bg-gray-500 sm:flex max-w-screen-2xl">
+      <div className="sticky top-0 z-10 justify-between hidden mx-auto bg-gray-600 sm:flex max-w-screen-2xl">
         <div className="flex items-center px-5 py-2 space-x-6 text-lg font-semibold text-white md:space-x-16 md:text-xl ">
           <Link to="/">
             <div className="flex items-center justify-center px-5">
@@ -214,6 +215,7 @@ const Admin: FC<Props> = (props) => {
           })}
         </div>
       </div>
+      <Footer className="mt-10" />
     </div>
   );
 };

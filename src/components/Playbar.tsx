@@ -21,7 +21,7 @@ const Playbar: FC<Props> = ({ className, song }) => {
   return (
     <div
       className={
-        "flex py-1 w-full bg-gray-700 mx-auto max-w-screen-2xl " + className
+        "flex py-1 w-full bg-gray-500 mx-auto max-w-screen-2xl " + className
       }
     >
       {/* title */}

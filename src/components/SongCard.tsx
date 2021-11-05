@@ -28,9 +28,9 @@ const SongCard: FC<Props> = ({
       <div className="">
         <img className="w-12 h-12" src={imageUrl} alt="song pic" />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full">
         <p className="">{songName}</p>
-        <div className="flex space-x-3">
+        <div className="flex justify-between pr-2 ">
           <p className="truncate">{Artist}</p>
           <p>{Year}</p>
         </div>

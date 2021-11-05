@@ -31,6 +31,9 @@ const Contact: FC<Props> = (props) => {
   return (
     <div className="max-w-5xl mx-auto my-10 bg-gray-200 rounded-lg">
       <p className="px-5 pt-10 text-4xl font-bold">Contact</p>
+      <p className="px-5 text-lg font-semibold">
+        If you have any query feel free to ask...
+      </p>
       <form className="px-5 py-10 space-y-8" onSubmit={formik.handleSubmit}>
         <div className="flex w-full space-x-10">
           <div className="flex flex-col flex-1 space-y-3">

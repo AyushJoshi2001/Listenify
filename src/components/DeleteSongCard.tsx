@@ -30,7 +30,7 @@ const SongCard: FC<Props> = ({
           <img className="w-12 h-12" src={imageUrl} alt="song pic" />
         </div>
         <div className="flex flex-col pl-3">
-          <div>
+          <div className="w-40">
             <p className="">{songName}</p>
             <div className="flex space-x-3">
               <p className="truncate">{Artist}</p>

@@ -1,18 +1,22 @@
-import { FC, InputHTMLAttributes, memo } from "react";
+import { FC, InputHTMLAttributes, memo, useState } from "react";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
 }
 
 const Searchbar: FC<Props> = ({ className }) => {
-  //   const [focus, setFocus] = useState(false);
-  //   let focusClass = "";
+  const [blur, setblur] = useState(true);
+  const searchMusic = () => {
+    // method to search for music...
+  };
 
-  //   if (focus) {
-  //     focusClass = "h-10 w-2/3 py-2";
-  //   } else {
-  //     focusClass = "w-1/2 h-8 py-1";
-  //   }
+  let blurClass = "";
+
+  if (blur) {
+    blurClass = " w-2/3 h-9 py-1";
+  } else {
+    blurClass = " w-4/5 h-11 py-2";
+  }
 
   return (
     <input
@@ -20,13 +24,17 @@ const Searchbar: FC<Props> = ({ className }) => {
       name="search"
       placeholder="Search..."
       className={
-        "md:w-2/3 h-8 sm:h-10 w-4/5 py-1 px-5 placeholder-gray-400 rounded-lg outline-none bg-gray-50 " +
-        className
+        " py-1 px-5 placeholder-gray-400 rounded-lg outline-none bg-gray-50 " +
+        className +
+        blurClass
       }
-      //   onFocus={() => {
-      //     console.log("onFocus...", focus);
-      //     setFocus(!focus);
-      //   }}
+      onFocus={() => {
+        setblur(false);
+      }}
+      onBlur={() => {
+        setblur(true);
+      }}
+      onChange={searchMusic}
     />
   );
 };

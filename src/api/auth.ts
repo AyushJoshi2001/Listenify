@@ -78,3 +78,12 @@ export const addSong = (data: SongDetails) => {
                   alert("Error occured: " + error);
                 });
 }
+
+export const deleteSong = (songId: string) => {
+    db.collection("Songs").doc(songId).delete().then(() => {
+        alert("Song deleted successfully...");
+        window.location.href = "/admin";
+    }).catch(() => {
+        alert(alert("Error occured while deleting..."));
+    })
+}

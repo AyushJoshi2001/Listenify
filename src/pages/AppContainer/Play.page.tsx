@@ -1,7 +1,6 @@
 import { FC, memo, useContext } from "react";
 import { BsPlay } from "react-icons/bs";
 import { useHistory, useParams } from "react-router";
-import Footer from "../../components/Footer";
 import Playbar from "../../components/Playbar";
 import SongCard from "../../components/SongCard";
 import SongContext from "../../context/songs.context";
@@ -78,7 +77,6 @@ const Play: FC<Props> = (props) => {
           })}
         </div>
       </div>
-      <Footer className="mt-10" />
     </div>
   );
 };

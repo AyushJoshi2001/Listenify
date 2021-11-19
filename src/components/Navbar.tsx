@@ -9,30 +9,51 @@ interface Props {}
 const Navbar: FC<Props> = (props) => {
   return (
     <>
-      <div className="flex flex-col mx-auto max-w-screen-2xl">
-        <div className="flex flex-col px-5 py-2 bg-gray-700 sm:flex-row">
+      <div className="flex flex-col mx-auto max-w-screen-2xl ">
+        <div className="flex flex-col justify-between px-5 py-2 sm:flex-row">
           <Link to="/">
             <div className="flex items-center justify-center px-5">
-              <img className="w-12 h-12 rounded-full" src={logo} alt="logo" />
-              <h1 className="px-2 text-3xl font-bold text-white">Listenify</h1>
+              <img className="w-16 h-16 rounded-full" src={logo} alt="logo" />
+              <h1 className="px-2 text-4xl font-bold text-white">Listenify</h1>
             </div>
           </Link>
 
-          <div className="flex items-center justify-center w-full my-5 sm:my-0">
-            <Searchbar />
+          <div className="flex items-center">
+            <Dropdown />
           </div>
         </div>
       </div>
 
-      <div className="sticky top-0 z-10 justify-between hidden mx-auto bg-gray-500 sm:flex max-w-screen-2xl">
-        <div className="flex items-center px-5 py-2 space-x-6 text-lg font-semibold text-white md:space-x-16 md:text-xl ">
-          <Link to="/home">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/admin">Admin</Link>
+      <div className="sticky top-0 z-10 justify-between hidden py-1 mx-auto bg-black bg-opacity-80 sm:flex max-w-screen-2xl">
+        <div className="flex items-center px-5 py-2 space-x-6 text-lg md:space-x-16 md:text-xl ">
+          <Link
+            to="/home"
+            className="text-white border-b-2 border-blue-400 border-opacity-0 hover:border-opacity-100 hover:text-gray-300"
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="text-white border-b-2 border-blue-400 border-opacity-0 hover:border-opacity-100 hover:text-gray-300"
+          >
+            About
+          </Link>
+          <Link
+            to="/contact"
+            className="text-white border-b-2 border-opacity-0 hover:border-blue-400 hover:border-opacity-100 hover:text-gray-300"
+          >
+            Contact
+          </Link>
+          <Link
+            to="/admin"
+            className="text-white border-b-2 border-blue-400 border-opacity-0 hover:border-opacity-100 hover:text-gray-300"
+          >
+            Admin
+          </Link>
         </div>
-        <div className="flex items-center">
-          <Dropdown />
+
+        <div className="flex items-center justify-center w-full mx-5 my-5 sm:my-0">
+          <Searchbar />
         </div>
       </div>
     </>

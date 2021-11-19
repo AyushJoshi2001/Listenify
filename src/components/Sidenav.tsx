@@ -46,7 +46,7 @@ const Sidenav: FC<Props> = ({ className }) => {
             <div className="fixed top-0 left-0 z-10 transform">
               <div
                 className={
-                  "relative flex flex-col w-64 min-h-screen bg-gray-200 rounded-md flex-shrink-0" +
+                  "relative flex flex-col w-64 min-h-screen bg-black bg-opacity-70 rounded-md flex-shrink-0" +
                   className
                 }
               >

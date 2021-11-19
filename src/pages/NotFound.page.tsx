@@ -4,8 +4,8 @@ interface Props {}
 
 const NotFound: FC<Props> = (props) => {
   return (
-    <div className="min-h-screen bg-red-100">
-      the page you are looking for does not found.
+    <div className="flex items-center justify-center min-h-screen text-4xl font-semibold bg-red-500">
+      Page Not Found
     </div>
   );
 };

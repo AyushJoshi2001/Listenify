@@ -17,7 +17,7 @@ const AppContainer: FC<Props> = (props) => {
       <Navbar />
       <div className="flex mx-auto max-w-screen-2xl">
         <Sidenav className="flex-shrink-0" />
-        <div className="w-full bg-black">
+        <div className="w-full">
           <Switch>
             <Route path="/home">
               <HomePage />
@@ -37,7 +37,7 @@ const AppContainer: FC<Props> = (props) => {
           </Switch>
         </div>
       </div>
-      <Footer />
+      <Footer className="bg-black bg-opacity-80" />
     </>
   );
 };

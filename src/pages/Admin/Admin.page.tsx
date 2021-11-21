@@ -9,6 +9,7 @@ import { addSong, deleteSong } from "../../api/auth";
 import SongContext from "../../context/songs.context";
 import DeleteSongCard from "../../components/DeleteSongCard";
 import Footer from "../../components/Footer";
+import Sidenav from "../../components/Sidenav";
 
 interface Props {}
 
@@ -116,6 +117,7 @@ const Admin: FC<Props> = (props) => {
           <Dropdown />
         </div>
       </div>
+      <Sidenav className="flex-shrink-0" />
 
       <div className="max-w-5xl mx-auto mt-10 text-white bg-black rounded-lg bg-opacity-80">
         <p className="px-5 pt-10 text-4xl font-bold">Add Song</p>

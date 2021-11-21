@@ -26,7 +26,7 @@ const SongCard: FC<Props> = ({
       onClick={onClick}
     >
       <div className="">
-        <img className="w-12 h-12" src={imageUrl} alt="song pic" />
+        <img className="w-16 h-12 rounded-lg" src={imageUrl} alt="song pic" />
       </div>
       <div className="flex flex-col w-full">
         <p className="">{songName}</p>

@@ -102,7 +102,7 @@ const Admin: FC<Props> = (props) => {
   });
 
   return (
-    <div className="bg-admin-background">
+    <div className="bg-fixed bg-center bg-cover bg-admin-background">
       {/* navbar */}
       <div className="sticky top-0 z-10 justify-between hidden mx-auto bg-black bg-opacity-80 sm:flex max-w-screen-2xl">
         <div className="flex items-center px-5 py-2 space-x-6 text-lg font-semibold text-white md:space-x-16 md:text-xl ">
@@ -133,6 +133,7 @@ const Admin: FC<Props> = (props) => {
               <input
                 type="file"
                 name="Song"
+                accept=".mp3,audio/*"
                 id="Song"
                 onChange={(event) => {
                   formik.setFieldValue("Song", event.currentTarget.files![0]);
@@ -146,6 +147,7 @@ const Admin: FC<Props> = (props) => {
               <input
                 type="file"
                 name="Song_Image"
+                accept=".png,.jpg,.jpeg"
                 id="Song_Image"
                 onChange={(event) => {
                   formik.setFieldValue(

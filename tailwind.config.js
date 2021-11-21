@@ -7,7 +7,7 @@ module.exports = {
         "main-background":
           "url('https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_960_720.jpg')",
         "admin-background":
-          "url('https://cdn.pixabay.com/photo/2016/04/04/14/12/monitor-1307227_960_720.jpg')",
+          "url('https://cdn.pixabay.com/photo/2016/03/30/05/41/music-1290087_960_720.jpg')",
       },
 
       backgroundColor: (theme) => ({

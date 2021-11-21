@@ -34,7 +34,7 @@ const Play: FC<Props> = (props) => {
         <div className="flex flex-col px-10 py-16 md:flex-row">
           <div className="pb-10 md:pr-10 md:pb-0">
             <img
-              className="rounded-lg w-72 h-72"
+              className="w-48 h-48 rounded-2xl"
               src={currentSong.Img_URL}
               alt="Song"
             />
@@ -51,7 +51,7 @@ const Play: FC<Props> = (props) => {
                 <div className="flex items-center pr-1">
                   <BsPlay className="w-6 h-6" />
                 </div>
-                <p>PLAY</p>
+                <p>Now PLAYING...</p>
               </div>
             </button>
           </div>
@@ -67,6 +67,7 @@ const Play: FC<Props> = (props) => {
                 onClick={() => {
                   history.push("/play/" + song.Song_ID);
                 }}
+                key={song.Song_ID}
                 songName={song.Song_Name!}
                 imageUrl={song.Img_URL!}
                 Artist={song.Artist!}

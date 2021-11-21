@@ -14,7 +14,7 @@ const Sidenav: FC<Props> = ({ className }) => {
     <>
       <div>
         <GiHamburgerMenu
-          className="absolute z-10 text-gray-700 sm:hidden right-4 w-7 h-7"
+          className="absolute z-10 text-white sm:hidden right-4 w-7 h-7"
           onClick={() => {
             setIsOpen(!isOpen);
           }}
@@ -51,14 +51,14 @@ const Sidenav: FC<Props> = ({ className }) => {
                 }
               >
                 <GiCancel
-                  className="absolute w-7 h-7 right-2 top-2"
+                  className="absolute text-white w-7 h-7 right-2 top-2"
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
                 />
                 <Link
                   to="/home"
-                  className="px-3 py-2 mx-3 mt-16 font-semibold text-white bg-green-400 rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
+                  className="px-3 py-2 mx-3 mt-16 text-lg font-semibold text-white bg-transparent rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
@@ -67,7 +67,7 @@ const Sidenav: FC<Props> = ({ className }) => {
                 </Link>
                 <Link
                   to="/profile"
-                  className="px-3 py-2 mx-3 mt-3 font-semibold text-white bg-green-400 rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
+                  className="px-3 py-2 mx-3 mt-3 text-lg font-semibold text-white bg-transparent rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
@@ -76,7 +76,7 @@ const Sidenav: FC<Props> = ({ className }) => {
                 </Link>
                 <Link
                   to="/about"
-                  className="px-3 py-2 mx-3 mt-3 font-semibold text-white bg-green-400 rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
+                  className="px-3 py-2 mx-3 mt-3 text-lg font-semibold text-white bg-transparent rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
@@ -85,7 +85,7 @@ const Sidenav: FC<Props> = ({ className }) => {
                 </Link>
                 <Link
                   to="/contact"
-                  className="px-3 py-2 mx-3 mt-3 font-semibold text-white bg-green-400 rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
+                  className="px-3 py-2 mx-3 mt-3 text-lg font-semibold text-white bg-transparent rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
@@ -94,7 +94,7 @@ const Sidenav: FC<Props> = ({ className }) => {
                 </Link>
                 <Link
                   to="/admin"
-                  className="px-3 py-2 mx-3 mt-3 font-semibold text-white bg-green-400 rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
+                  className="px-3 py-2 mx-3 mt-3 text-lg font-semibold text-white bg-transparent rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
@@ -104,7 +104,7 @@ const Sidenav: FC<Props> = ({ className }) => {
 
                 <button
                   type="button"
-                  className="px-3 py-2 mx-3 mt-3 font-semibold text-left text-white bg-green-400 rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
+                  className="px-3 py-2 mx-3 mt-3 text-lg font-semibold text-left text-white bg-transparent rounded-lg outline-none hover:bg-green-100 hover:text-gray-500"
                   onClick={() => {
                     setIsOpen(!isOpen);
                     signout();

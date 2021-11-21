@@ -36,11 +36,6 @@ const Admin: FC<Props> = (props) => {
     }),
 
     onSubmit: (data) => {
-      // ------------------------------------------------------
-      // validation of mp3 file and image('.jpg','.jpeg','.png').
-
-      // -------------------------------------------------------
-
       let imageUrl: string;
       let songUrl: string;
       const fileRef = songsStorageRef.child(data.Song_Name);
